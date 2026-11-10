@@ -6,12 +6,12 @@ import {
   FiArrowLeft, FiArrowRight, FiAlertTriangle, FiBriefcase, FiCheck, FiClock,
   FiCopy, FiDollarSign, FiFileText, FiGlobe, FiHome, FiLayers, FiList, FiLock,
   FiPrinter, FiRefreshCw, FiShield, FiShoppingBag, FiTool, FiTrendingUp,
-  FiUser, FiUsers, FiZap,
+  FiInfo, FiUser, FiUsers, FiZap,
 } from "react-icons/fi";
 import { FaWhatsapp } from "react-icons/fa";
 import s from "./page.module.css";
 import g from "./jeu.module.css";
-import { CABINET, DATE_VERIFICATION, LOGO_SRC, recommander } from "../../lib/regles";
+import { AVERTISSEMENT, CABINET, DATE_VERIFICATION, LOGO_SRC, recommander } from "../../lib/regles";
 import { buildSummary, chiffres, formatCapital, formatFcfa, whatsappUrl } from "../../lib/outils";
 
 
@@ -189,11 +189,13 @@ export default function Simulateur() {
             <p className={s.introNom}>{CABINET.nom}</p>
             <p className={s.introSig}>{CABINET.signature}</p>
             <p className={g.press}>▶ Appuyer pour entrer</p>
+            <p className={g.noteIntro}>{AVERTISSEMENT.court}</p>
           </div>
         </div>
       )}
 
       <div className={s.wrap}>
+        <p className={g.bandeau} role="note"><FiInfo aria-hidden="true" /> {AVERTISSEMENT.court}</p>
         <header className={s.head}>
           <Logo />
           <div>
@@ -308,6 +310,11 @@ export default function Simulateur() {
                 <ol>{reco.forme.etapes.map((e) => <li key={e}>{e}</li>)}</ol>
               </div>
 
+              <div className={g.avertir} role="note">
+                <FiInfo aria-hidden="true" />
+                <p>{AVERTISSEMENT.long}</p>
+              </div>
+
               <p className={s.mention}>
                 Estimation indicative, non contractuelle.{" "}
                 {DATE_VERIFICATION ? `Données vérifiées le ${DATE_VERIFICATION}.` : "Données en cours de validation par le cabinet."}{" "}
@@ -317,7 +324,7 @@ export default function Simulateur() {
               <div className={s.actions}>
                 {lien ? (
                   <a className={`${s.btn} ${s.btnWa}`} href={lien} target="_blank" rel="noopener noreferrer">
-                    <FaWhatsapp /> Envoyer au cabinet sur WhatsApp
+                    <FaWhatsapp /> Contacter le cabinet sur WhatsApp
                   </a>
                 ) : (
                   <p className={s.mention}>Numéro WhatsApp non configuré (voir .env.local).</p>

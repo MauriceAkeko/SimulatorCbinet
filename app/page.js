@@ -3,7 +3,7 @@ import { Outfit, Cormorant_Garamond } from "next/font/google";
 import { FiArrowRight, FiClock, FiFileText, FiShield } from "react-icons/fi";
 import styles from "./page.module.css";
 
-import { LOGO_SRC } from "../lib/regles";
+import { AVERTISSEMENT, LOGO_SRC } from "../lib/regles";
 import Decor from "./simulateur-creation-societe/Decor";
 
 const font = Outfit({ subsets: ["latin"], display: "swap" });
@@ -45,6 +45,8 @@ export default function Home() {
           <li><FiFileText /> Gratuit et sans inscription</li>
           <li><FiShield /> Vos réponses restent dans votre navigateur</li>
         </ul>
+
+        <p className={styles.avis}>{AVERTISSEMENT.long}</p>
       </section>
     </main>
   );

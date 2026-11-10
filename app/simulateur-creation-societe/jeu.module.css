@@ -88,3 +88,17 @@
   .salle, .flash, .dossier, .corps, .plan, .curseur, .press { animation: none !important; transition-duration: .01ms !important; }
   .flash { display: none; }
 }
+
+/* Avertissement : version expérimentale */
+.bandeau {
+  display: flex; align-items: flex-start; gap: 8px; margin: 0 0 12px; padding: 8px 12px; border-radius: 10px;
+  background: rgba(212,173,95,.96); color: #3a1a1c; font-size: .8rem; font-weight: 600; line-height: 1.35;
+}
+.bandeau svg { flex-shrink: 0; margin-top: 2px; }
+.noteIntro { max-width: 420px; margin: 18px 0 0; font-size: .8rem; color: #f0d9d9; opacity: .9; }
+.avertir {
+  display: flex; gap: 10px; margin-bottom: 12px; padding: 14px 16px; border-radius: 14px;
+  background: #fdecec; border: 1.5px solid #8b2326; color: #5b1417; font-size: .9rem; line-height: 1.5;
+}
+.avertir svg { flex-shrink: 0; margin-top: 3px; font-size: 1.1rem; }
+.avertir p { margin: 0; }
